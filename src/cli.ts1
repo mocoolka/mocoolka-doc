@@ -1,0 +1,27 @@
+import program from 'commander';
+import pj from '../package.json';
+import ts from './ts'
+import * as path from 'path';
+
+const docs = () => {
+  program
+    .version(pj.version)
+    .usage('[options] <inputPath> ', )
+    .option('-t, --ts', 'parse ts into md file')
+    .option('-o, --output <s>', 'save <path>`', process.cwd())
+    .option('-f, --float <n>', 'A float argument', parseFloat)
+    .option('-y, --yarn', 'install using yarn instead of npm')
+    .parse(process.argv);
+
+
+/*   const options = {
+    dev: Boolean(program.dev),
+    outputPath: String(program.output),
+    yarn: Boolean(program.yarn)
+  } */
+  const inputPath = program.args.length === 0 ? path.resolve(process.cwd(), 'src') : program.args[0];
+  const outputPath = program.output ? program.output : path.resolve(process.cwd(), 'docs');
+  ts(inputPath, outputPath).run();
+}
+
+

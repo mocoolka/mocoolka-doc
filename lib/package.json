@@ -1,0 +1,66 @@
+{
+    "name": "mocoolka-doc",
+    "version": "0.1.6",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "author": "fastspeeed@gmail.com",
+    "bin": {
+        "docs": "./lib/cli/docs",
+        "ts": "./lib/cli/ts"
+    },
+    "engines": {
+        "node": ">= 4"
+    },
+    "scripts": {
+        "reinstall": "rm -rf node_modules/ && yarn install",
+        "tDocs": "ts-node ./src/cli/docs ./examples/docs/ -i input -o output",
+        "tDocs1": "ts-node ./src/cli/docs ../mocoolka-ui-components/examples -i docs -o pages",
+        "clean": "rm -rf lib/ ",
+        "lint": "tslint -p './tsconfig.json'",
+        "lint:fix": "tslint -p ./tsconfig.json --fix",
+        "tsc:watch": "tsc -p . --noEmit -w",
+        "test": "jest",
+        "test:watch": "jest  --watch ",
+        "build": "rimraf -rf lib/  && tsc",
+        "precommit": "npm run lint",
+        "prepush": "npm run test",
+        "coverage": "rimraf coverage && jest --coverage"
+    },
+    "dependencies": {
+        "chalk": "^2.3.1",
+        "commander": "^2.15.1",
+        "doctrine": "^2.1.0",
+        "mocoolka-fp": "^0.1.15",
+        "mocoolka-fs": "^0.1.7",
+        "prettier": "^1.11.1",
+        "ts-simple-ast": "^12.4.0"
+    },
+    "devDependencies": {
+        "@types/doctrine": "^0.0.3",
+        "@types/jest": "^23.1.0",
+        "@types/lodash": "^4.14.110",
+        "@types/node": "^10.3.3",
+        "@types/prettier": "^1.10.0",
+        "jest": "^23.1.0",
+        "rimraf": "^2.6.2",
+        "ts-jest": "^22.4.6",
+        "tslint": "^5.10.0",
+        "typescript": "^2.9.2"
+    },
+    "keywords": [
+        "mocoolka",
+        "functional"
+    ],
+    "license": "MIT",
+    "jest": {
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js"
+        ],
+        "transform": {
+            "^.+\\.tsx?$": "ts-jest"
+        },
+        "testRegex": "(./src/*|\\.(test|spec))\\.(ts|tsx)$"
+    }
+}

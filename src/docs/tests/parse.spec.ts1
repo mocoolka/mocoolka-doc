@@ -1,0 +1,10 @@
+import { getModuleName } from '../docs'
+
+describe('docs', () => {
+
+    it('getModuleName', () => {
+        expect(getModuleName('/home/mocoolka/ui/','/home/mocoolka/ui/compontents/buttons/button.md')).toEqual(
+            'compontents.buttons.button'
+        )
+    });
+});

@@ -1,0 +1,30 @@
+import { parseDocMd } from '../parser'
+import { } from '../../fs';
+import { filesSync, readFileAsPlainStringSync, writeFileWithStringSync, pathResolve } from 'mocoolka-fs';
+import * as path from 'path';
+const errorContent=`
+## App bar with buttons
+
+{{{"demo"}}}
+
+## App bar with menu
+
+{{"demo": "pages/demos/app-bar/MenuAppBar.js"}}
+
+
+`
+const content = readFileAsPlainStringSync(path.resolve(__dirname, './prop.md')).run();
+/* describe('doc parse', () => {
+
+    it('parseDocMd', () => {
+        const result = parseDocMd.run({ name: 'bar', content });
+        expect(result.isRight()).toEqual(true);
+        expect((result.value as any).items.length).toEqual(6)
+        expect((result.value as any).name).toEqual('bar')
+    });
+    it('parseDocMd with error', () => {
+        const result = parseDocMd.run({ name: 'bar', content :errorContent});
+        expect(result.isLeft()).toEqual(true);
+        expect((result.value as any)).toEqual([{"_tag": "SpecInvalidConent", "content": "{\"demo\"}", "module": "bar"}])
+    });
+}); */

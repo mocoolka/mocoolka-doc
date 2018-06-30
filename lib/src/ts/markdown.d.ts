@@ -1,0 +1,13 @@
+import * as m from './type';
+export declare const CRLF = "\n";
+export declare const h1: (title: string) => string;
+export declare const h2: (title: string) => string;
+export declare const h3: (title: string) => string;
+export declare const h: (level: number) => (title: string) => string;
+export declare const fence: (language: string) => (a: string) => string;
+export declare const code: (a: string) => string;
+export declare const link: (text: string, href: string) => string;
+export declare const ts: (a: string) => string;
+export declare const italic: (a: string) => string;
+export declare const printDocModule: (docModule: m.DocModuleMap) => string;
+export declare const printIndex: (modules: m.Nav[]) => string;
